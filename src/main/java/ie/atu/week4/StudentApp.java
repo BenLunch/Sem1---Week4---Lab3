@@ -1,19 +1,33 @@
 package ie.atu.week4;
-
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 public class StudentApp {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        int count = 0;
+        int i = 0;
+        Scanner sc = new Scanner(System.in);
+        List<Student> studentList = new ArrayList<Student>();
+        Student student1;
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        System.out.println("Please enter the number of students: ");
+        count = sc.nextInt();
+        while(i < count){
+            System.out.println("Please enter the student name: ");
+            String name = sc.nextLine();
+            System.out.println("Please enter the student email: ");
+            String email = sc.nextLine();
+            System.out.println("Please enter the student ID: ");
+            String id = sc.nextLine();
+            System.out.println("Please enter the student course: ");
+            String course = sc.nextLine();
+            Student student1 = new Student();
+            student1.setName(name);
+            student1.setEmail(email);
+            student1.setId(id);
+            student1.setCourse(course);
+            studentList.add(student1);
+            count ++;
         }
     }
 }
