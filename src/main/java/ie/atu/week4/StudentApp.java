@@ -4,22 +4,50 @@ import java.util.ArrayList;
 import java.util.List;
 public class StudentApp {
     public static void main(String[] args) {
-        int count = 0;
+        int studentNum = 0;
         int i = 0;
         Scanner sc = new Scanner(System.in);
+        //
         List<Student> studentList = new ArrayList<Student>();
 
         System.out.println("Please enter the number of students: ");
-        count = sc.nextInt();
+        studentNum = sc.nextInt();
         sc.nextLine();
-        while(i < count){
+        while(i < studentNum){
             Student student1 = new Student();
             System.out.println("Please enter the student name: ");
             String name = sc.nextLine();
-            System.out.println("Please enter the student email: ");
-            String email = sc.nextLine();
-            System.out.println("Please enter the student ID: ");
-            String id = sc.nextLine();
+            String email;
+            boolean emailExists;
+            do {
+                System.out.println("Please enter the student email: ");
+                email = sc.nextLine();
+                emailExists = false;
+
+                for(Student student : studentList) {
+                    if (student.getEmail().equalsIgnoreCase(email)) {
+                        System.out.println("This email is already registered. Please use another email");
+                        emailExists = true;
+                        break;
+                    }
+                }
+            } while (emailExists);
+
+            String id;
+            boolean idExists;
+            do {
+                System.out.println("Please enter the student ID: ");
+                id = sc.nextLine();
+                idExists = false;
+
+                for(Student student : studentList) {
+                    if(student.getId().equalsIgnoreCase(id)) {
+                        System.out.println("This Id is already registered. Please enter your student Id");
+                        idExists = true;
+                        break;
+                    }
+                }
+            }while (idExists);
             System.out.println("Please enter the student course: ");
             String course = sc.nextLine();
             System.out.println("---------------------------------");
