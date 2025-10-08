@@ -12,7 +12,7 @@ public class StudentApp {
         //Prompt user for the number of students.
         System.out.println("Please enter the number of students: ");
         studentNum = sc.nextInt();
-        sc.nextLine(); // Consumes leftover newline 
+        sc.nextLine(); // Consumes leftover new line
         //While loop to repeat until all student information is inputted.
         while(i < studentNum){
             Student student1 = new Student();
