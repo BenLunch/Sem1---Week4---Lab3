@@ -7,16 +7,18 @@ public class StudentApp {
         int studentNum = 0;
         int i = 0;
         Scanner sc = new Scanner(System.in);
-        //
+        //Array List to house Student information.
         List<Student> studentList = new ArrayList<Student>();
-
+        //Prompt user for the number of students.
         System.out.println("Please enter the number of students: ");
         studentNum = sc.nextInt();
-        sc.nextLine();
+        sc.nextLine(); // Consumes leftover newline 
+        //While loop to repeat until all student information is inputted.
         while(i < studentNum){
             Student student1 = new Student();
             System.out.println("Please enter the student name: ");
             String name = sc.nextLine();
+            //Do while loop to catch an email that was already inputted, repeats until new email is inputted.
             String email;
             boolean emailExists;
             do {
@@ -32,7 +34,7 @@ public class StudentApp {
                     }
                 }
             } while (emailExists);
-
+            //Do while loop to catch an id that was already inputted, repeats until new id is inputted.
             String id;
             boolean idExists;
             do {
@@ -59,6 +61,7 @@ public class StudentApp {
             i++;
         }
 
+        //For loop to print out all student information.
         int counter = 1;
         for (Student student : studentList) {
             System.out.println("Student" + counter + ":");
